@@ -1,15 +1,16 @@
 
 public class Main {
     public static void main(String[] args) {
-        iPhone iphoneMax = new iPhone();
-        iphoneMax.buyPhone();
-        iphoneMax.turnOn();
+        iPhone iPhone = new iPhone("아이폰");
+        Samsung galaxy = new Samsung("삼송폰");
 
-        System.out.println();
+        User jobs = new User("잡스");
+        jobs.buyPhone(iPhone);
+        jobs.turnOnPhone();
 
-        Samsung galaxy = new Samsung();
-        galaxy.buyPhone();
-        galaxy.turnOn();
+        User jDragon = new User("재용");
+        jDragon.buyPhone(galaxy);
+        jDragon.turnOnPhone();
 
 
     }
