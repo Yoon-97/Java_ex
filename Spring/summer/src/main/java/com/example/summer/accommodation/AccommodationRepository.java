@@ -35,8 +35,14 @@ public class AccommodationRepository {
 
     public String findAllRooms() {
         StringBuilder sb = new StringBuilder();
-        for (Integer i : accommodationTable.keySet()) {
-            sb.append(roomTable.get(i).toString());
+        for (Integer i : roomTable.keySet()) {
+            sb.append("AccommodationId: " + i + "\n");
+            List<Room> roomList = roomTable.get(i);
+            for (Room room : roomList) {
+                sb.append(room.toString());
+            }
+            sb.append("\n----------------------\n");
+
         }
         return sb.toString();
     }
