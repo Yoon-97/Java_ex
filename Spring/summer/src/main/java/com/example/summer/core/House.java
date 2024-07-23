@@ -1,5 +1,8 @@
 package com.example.summer.core;
 
+import lombok.Getter;
+
+@Getter
 public class House {
     private String name;
 
@@ -12,8 +15,5 @@ public class House {
         this.name = name;
         System.out.println("이름 있는 집이 생성되었다");
     }
-
-    public String getName() {
-        return name;
-    }
+    
 }
