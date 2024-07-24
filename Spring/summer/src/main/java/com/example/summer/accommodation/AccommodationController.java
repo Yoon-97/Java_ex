@@ -34,15 +34,4 @@ public class AccommodationController {
         return accommodationService.getAccommodationName(id);
     }
 
-    @RequestMapping(value = "/rooms", method = RequestMethod.GET)
-    public String getAllRooms() {
-        System.out.println(accommodationService.getAllRooms());
-        return accommodationService.getAllRooms();
-    }
-
-    @RequestMapping(value = "/rooms", method = RequestMethod.POST)
-    public ResponseEntity<String> addRooms(@RequestBody RoomRequestDto roomRequestDto) {
-        return new ResponseEntity<>(accommodationService.addRooms(roomRequestDto), HttpStatus.CREATED);
-    }
-
 }

@@ -1,4 +1,4 @@
-package com.example.summer.accommodation;
+package com.example.summer.rooom;
 
 public class Room {
     private String roomName;

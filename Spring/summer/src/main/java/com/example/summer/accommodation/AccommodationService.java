@@ -3,8 +3,6 @@ package com.example.summer.accommodation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class AccommodationService {
     AccommodationRepository accommodationRepository;
@@ -32,13 +30,4 @@ public class AccommodationService {
         return accommodationRepository.saveProduct(accommodation);
     }
 
-    public String addRooms(RoomRequestDto roomRequestDto) {
-        List<Room> roomList = roomRequestDto.getRooms();
-        int accommodationId = roomRequestDto.getAccommodationId();
-        return accommodationRepository.saveRoom(accommodationId, roomList);
-    }
-
-    public String getAllRooms() {
-        return accommodationRepository.findAllRooms();
-    }
 }

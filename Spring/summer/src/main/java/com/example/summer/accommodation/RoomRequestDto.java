@@ -1,5 +1,7 @@
 package com.example.summer.accommodation;
 
+import com.example.summer.rooom.Room;
+
 import java.util.List;
 
 public class RoomRequestDto {

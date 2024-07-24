@@ -1,6 +1,6 @@
 package com.example.summer.place;
 
-import com.example.summer.accommodation.Room;
+import com.example.summer.rooom.Room;
 
 import java.util.List;
 
