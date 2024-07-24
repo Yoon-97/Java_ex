@@ -14,12 +14,18 @@ public class AccommodationService {
         this.accommodationRepository = accommodationRepository;
     }
 
-    public Accommodation getProduct(int id) {
+    public Accommodation getAccommodation(int id) {
         return accommodationRepository.getProduct(id);
     }
 
-    public String getProductName(int id) {
-        return accommodationRepository.getProduct(id).getName();
+    public String getAccommodationName(int id) {
+        try {
+            Accommodation foundedAccommodation = accommodationRepository.getProduct(id);
+            return foundedAccommodation.getName();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "exception!";
+        }
     }
 
     public Accommodation addAccommodation(Accommodation accommodation) {

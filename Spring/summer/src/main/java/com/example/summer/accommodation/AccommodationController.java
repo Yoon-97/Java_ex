@@ -15,19 +15,23 @@ public class AccommodationController {
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public ResponseEntity<Accommodation> addAccommodation(@RequestBody Accommodation accommodation) {
+    public ResponseEntity<?> addAccommodation(@RequestBody Accommodation accommodation) {
         Accommodation savedAccommodation = accommodationService.addAccommodation(accommodation);
-        return new ResponseEntity<>(savedAccommodation, HttpStatus.CREATED);
+
+        if (savedAccommodation != null)
+            return new ResponseEntity<>(savedAccommodation, HttpStatus.CREATED);
+        else
+            return new ResponseEntity<>("실패", HttpStatus.BAD_REQUEST);
     }
 
 //    @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-//    public Accommodation getAccommodation(@PathVariable int id) {
-//        return accommodationService.getProduct(id);
+//    public Accommodation getAccommodationName(@PathVariable int id) {
+//        return accommodationService.getAccommodation(id);
 //    }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-    public String getAccommodation(@PathVariable int id) {
-        return accommodationService.getProductName(id);
+    public String getAccommodationName(@PathVariable int id) {
+        return accommodationService.getAccommodationName(id);
     }
 
     @RequestMapping(value = "/rooms", method = RequestMethod.GET)
