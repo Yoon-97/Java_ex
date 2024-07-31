@@ -34,4 +34,5 @@ public class AccommodationController {
         return accommodationService.getAccommodationName(id);
     }
 
+
 }

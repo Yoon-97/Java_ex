@@ -1,5 +1,6 @@
 package com.example.summer.accommodation;
 
+import com.example.summer.exception.AccommodationNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +14,15 @@ public class AccommodationService {
     }
 
     public Accommodation getAccommodation(int id) {
-        return accommodationRepository.getProduct(id);
+        return accommodationRepository.getAccommodation(id).orElseThrow(
+                () -> new AccommodationNotFoundException("No Accommodation Found: ")
+        );
     }
 
     public String getAccommodationName(int id) {
-        try {
-            Accommodation foundedAccommodation = accommodationRepository.getProduct(id);
-            return foundedAccommodation.getName();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return "exception!";
-        }
+
+        Accommodation foundedAccommodation = accommodationRepository.getAccommodation(id).orElseThrow(() -> new AccommodationNotFoundException("No Accommodation: "));
+        return foundedAccommodation.getName();
     }
 
     public Accommodation addAccommodation(Accommodation accommodation) {

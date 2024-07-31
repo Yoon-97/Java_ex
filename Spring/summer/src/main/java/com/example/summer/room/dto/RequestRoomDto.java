@@ -1,10 +1,10 @@
-package com.example.summer.accommodation;
+package com.example.summer.room.dto;
 
-import com.example.summer.rooom.Room;
+import com.example.summer.room.Room;
 
 import java.util.List;
 
-public class RoomRequestDto {
+public class RequestRoomDto {
     private int accommodationId;
     private List<Room> rooms;
 

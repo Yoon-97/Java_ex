@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 public class AccommodationRepository {
@@ -14,14 +15,15 @@ public class AccommodationRepository {
         this.accommodationTable = accommodationTable;
     }
 
-    public Accommodation getProduct(int id) {
-        return accommodationTable.get(id);
+    public Optional<Accommodation> getAccommodation(int id) {
+        Optional<Accommodation> foundedAccommodation = Optional.ofNullable(accommodationTable.get(id));
+        return foundedAccommodation;
     }
 
     public Accommodation saveProduct(Accommodation accommodation) {
         accommodation.setId(accommodationIdx++);
         accommodationTable.put(accommodationIdx++, accommodation);
-        return (getProduct(accommodationIdx - 1));
+        return accommodation;
     }
 
 
